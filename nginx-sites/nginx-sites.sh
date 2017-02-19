@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Manages nginx sites.
 #
@@ -8,7 +8,9 @@
 #
 # Available from https://github.com/lovette/nginx-tools
 
-CMDPATH=$(readlink -f "$0")
+pushd "$(dirname $0)" >/dev/null
+CMDPATH="$(pwd -P)"
+popd >/dev/null
 CMDNAME=$(basename "$CMDPATH")
 CMDDIR=$(dirname "$CMDPATH")
 CMDARGS=$@
